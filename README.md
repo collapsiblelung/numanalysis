@@ -10,4 +10,4 @@
 
 ### bisection
 * Download the code from the repository and run using python3.
-* Must have SymPy and NumPy installed.
+* Must have SymPy installed.
