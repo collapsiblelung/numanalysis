@@ -1,8 +1,8 @@
 import numpy as np
-
+from numpy import linalg as la
 
 def page_rank(transitions):
-    """ This function accepts a Numpy matrix of transitions and returns the PageRank matrix. """
+    """ This function accepts a NumPy transition matrix (must be stochastic) and returns the PageRank matrix (i.e. the ijth entry of v is the conditional probability P(move to state i after n iterations | in state j)). """
     
     # convergence criteria
     EPSILON = 0.000001 
@@ -49,6 +49,20 @@ def example1():
     transitions = np.matrix([[0, 0, 1/3, 0, 0, 0], [1/2, 0, 0, 1/2, 1/2, 0], [0, 1/2, 0, 0, 0, 1], [1/2, 0, 1/3, 0, 0, 0], [0, 0, 0, 1/2, 0, 0], [0, 1/2, 1/3, 0, 1/2, 0]])
     v = page_rank(transitions)
     
+    print('EXAMPLE 1')
+    print('transitions:')
+    print(transitions)
+    print()
+    print('v:')
+    print(v)
+    print()
+
+
+def example2():
+    transitions = np.matrix([[1/4, 1/2, 1/4], [1/3, 0, 2/3], [1/2, 0, 1/2]])
+    v = page_rank(transitions)
+    
+    print('EXAMPLE 2')
     print('transitions:')
     print(transitions)
     print()
@@ -59,3 +73,4 @@ def example1():
 
 if __name__ == '__main__':
     example1()
+    example2()
